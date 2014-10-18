@@ -1,0 +1,22 @@
+{
+  "name": "saxulum/saxulum-http-client-interface",
+  "description": "Saxulum Http Client Interface",
+  "keywords": ["saxulum", "http", "http-client", "client"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dominik Zogg",
+      "email": "dominik.zogg@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "kriswallsmith/buzz": "~0.13"
+  },
+  "autoload": {
+    "psr-0": { "Saxulum\\HttpClient": "src/" }
+  }
+}
