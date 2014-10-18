@@ -50,6 +50,9 @@ class Url
      */
     protected $fragment;
 
+    /**
+     * @param string $url
+     */
     public function __construct($url)
     {
         $urlParts = parse_url($url);
@@ -116,7 +119,7 @@ class Url
     }
 
     /**
-     * @return int|null
+     * @return int
      */
     public function getPort()
     {
