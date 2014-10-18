@@ -61,6 +61,14 @@ class Url
             throw new \InvalidArgumentException(sprintf('The url "%s" is invalid.', $url));
         }
 
+        $this->setUrlParts($urlParts);
+    }
+
+    /**
+     * @param array $urlParts
+     */
+    protected function setUrlParts(array $urlParts)
+    {
         $this->setUrlPart($urlParts, 'scheme', Url::SCHEME_HTTP);
         $this->setUrlPart($urlParts, 'host', function () {
             throw new \Exception('Url has to contain a host!');
