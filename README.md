@@ -55,4 +55,4 @@ interface HttpInterface
 
 
 [1]: https://packagist.org/packages/saxulum/saxulum-http-client-interface
-[2]: https://github.com/saxulum/saxulum/saxulum-http-client-interface/blob/master/tests/Saxulum/Tests/HttpClient/HttpClient.php
+[2]: https://github.com/saxulum/saxulum-http-client-interface/blob/master/tests/Saxulum/Tests/HttpClient/HttpClient.php
