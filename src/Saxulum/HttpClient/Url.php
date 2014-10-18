@@ -61,16 +61,16 @@ class Url
             throw new \InvalidArgumentException(sprintf('The url "%s" is invalid.', $url));
         }
 
-        $this->setUrlPart($urlParts, 'scheme', static::SCHEME_HTTP);
+        $this->setUrlPart($urlParts, 'scheme', Url::SCHEME_HTTP);
         $this->setUrlPart($urlParts, 'host', function () {
             throw new \Exception('Url has to contain a host!');
         }, 'hostName');
         $this->setUrlPart($urlParts, 'port', function (array $urlParts) {
-            if (isset($urlParts['scheme']) && static::SCHEME_HTTPS === $urlParts['scheme']) {
-                return static::PORT_HTTPS;
+            if (isset($urlParts['scheme']) && Url::SCHEME_HTTPS === $urlParts['scheme']) {
+                return Url::PORT_HTTPS;
             }
 
-            return static::PORT_HTTP;
+            return Url::PORT_HTTP;
         });
         $this->setUrlPart($urlParts, 'user');
         $this->setUrlPart($urlParts, 'pass', null, 'password');
