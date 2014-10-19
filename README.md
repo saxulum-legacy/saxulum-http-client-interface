@@ -35,7 +35,7 @@ $response = $httpClient->request(new Request(
 
 ## Implement
 
-To implement this interface, you need a existing http client and write and adapter for it, or write your own.
+To implement this interface, you need a existing http client and write an adapter for it or use an existing one.
 
 ``` {.php}
 <?php
