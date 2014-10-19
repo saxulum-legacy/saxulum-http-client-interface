@@ -55,9 +55,11 @@ interface HttpInterface
 Add the following to your adapter composer.json
 
 ``` {.json}
-"provide": {
-    "saxulum/saxulum-http-client-adapter": "1.0"
-},
+{
+    "provide": {
+        "saxulum/saxulum-http-client-adapter": "1.0"
+    }
+}
 ```
 
 [1]: https://packagist.org/packages/saxulum/saxulum-http-client-interface
