@@ -36,7 +36,6 @@ $response = $httpClient->request(new Request(
 ## Implement
 
 To implement this interface, you need a existing http client and write and adapter for it, or write your own.
-There is a simple implementation of a [http client][2] within the test suite. Do not use this in production!
 
 ``` {.php}
 <?php
@@ -55,4 +54,3 @@ interface HttpInterface
 
 
 [1]: https://packagist.org/packages/saxulum/saxulum-http-client-interface
-[2]: https://github.com/saxulum/saxulum-http-client-interface/blob/master/tests/Saxulum/Tests/HttpClient/HttpClient.php
