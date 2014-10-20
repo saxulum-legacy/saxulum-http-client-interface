@@ -62,4 +62,13 @@ Add the following to your adapter composer.json
 }
 ```
 
+Existing implementations:
+
+ * [saxulum-http-client-adapter-buzz][2] a [buzz][3] adapter
+ * [saxulum-http-client-adapter-guzzle][4] a [guzzle][5] adapter
+
 [1]: https://packagist.org/packages/saxulum/saxulum-http-client-interface
+[2]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-buzz
+[3]: https://packagist.org/packages/kriswallsmith/buzz
+[4]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-guzzle
+[5]: https://packagist.org/packages/guzzle/guzzle
