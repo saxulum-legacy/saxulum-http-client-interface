@@ -9,23 +9,35 @@ class HeaderConverterTest extends \PHPUnit_Framework_TestCase
     /**
      * @param array $rawHeaders
      * @param array $expected
-     * @dataProvider convertRawHeadersProvider
+     * @dataProvider convertRawToAssociativeProvider
      */
     public function testConvertRawHeaders(array $rawHeaders, array $expected)
     {
-        $actual = HeaderConverter::convertRawHeaders($rawHeaders);
+        $actual = HeaderConverter::convertRawToAssociative($rawHeaders);
 
         $this->assertEquals($expected, $actual);
     }
 
     /**
-     * @param array $headers
+     * @param array $associativeHeaders
      * @param array $expected
-     * @dataProvider convertHeadersProvider
+     * @dataProvider convertAssociativeToRawProvider
      */
-    public function testConvertHeaders(array $headers, array $expected)
+    public function testConvertAssociativeToRaw(array $associativeHeaders, array $expected)
     {
-        $actual = HeaderConverter::convertHeaders($headers);
+        $actual = HeaderConverter::convertAssociativeToRaw($associativeHeaders);
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @param array $complexAssociativeHeaders
+     * @param array $expected
+     * @dataProvider convertComplexAssociativeToFlatAssociativeProvider
+     */
+    public function testConvertComplexAssociativeToFlatAssociative(array $complexAssociativeHeaders, array $expected)
+    {
+        $actual = HeaderConverter::convertComplexAssociativeToFlatAssociative($complexAssociativeHeaders);
 
         $this->assertEquals($expected, $actual);
     }
@@ -33,7 +45,7 @@ class HeaderConverterTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function convertRawHeadersProvider()
+    public function convertRawToAssociativeProvider()
     {
         return array(
             array(
@@ -98,7 +110,7 @@ class HeaderConverterTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function convertHeadersProvider()
+    public function convertAssociativeToRawProvider()
     {
         return array(
             array(
@@ -146,6 +158,29 @@ class HeaderConverterTest extends \PHPUnit_Framework_TestCase
                     'Transfer-Encoding: chunked',
                     'Vary: User-Agent'
                 ),
+            ),
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function convertComplexAssociativeToFlatAssociativeProvider()
+    {
+        return array(
+            array(
+                array(
+                    'Accept' => array(
+                        'text/html', 'application/xhtml+xml', 'application/xml;q=0.9'
+                    ),
+                    'Accept-Lanuage' => array(
+                        'de', 'en-US;q=0.7', 'en;q=0.3'
+                    ),
+                ),
+                array(
+                    'Accept' => 'text/html, application/xhtml+xml, application/xml;q=0.9',
+                    'Accept-Lanuage' => 'de, en-US;q=0.7, en;q=0.3',
+                )
             ),
         );
     }

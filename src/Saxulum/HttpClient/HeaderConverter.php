@@ -13,9 +13,9 @@ class HeaderConverter
      * @param  array $rawHeaders
      * @return array
      */
-    public static function convertRawHeaders(array $rawHeaders)
+    public static function convertRawToAssociative(array $rawHeaders)
     {
-        $headers = array();
+        $associativeHeaders = array();
         foreach ($rawHeaders as $rawHeader) {
             if (false === $pos = strpos($rawHeader, ':')) {
                 continue;
@@ -24,27 +24,41 @@ class HeaderConverter
             $headerName = substr($rawHeader, 0, $pos);
             $headerValue = trim(substr($rawHeader, $pos + 1));
 
-            if (!isset($headers[$headerName])) {
-                $headers[$headerName] = $headerValue;
+            if (!isset($associativeHeaders[$headerName])) {
+                $associativeHeaders[$headerName] = $headerValue;
             } else {
-                $headers[$headerName] .= ', ' . $headerValue;
+                $associativeHeaders[$headerName] .= ', ' . $headerValue;
             }
         }
 
-        return $headers;
+        return $associativeHeaders;
     }
 
     /**
-     * @param  array $headers
+     * @param  array $associativeHeaders
      * @return array
      */
-    public static function convertHeaders(array $headers)
+    public static function convertAssociativeToRaw(array $associativeHeaders)
     {
         $rawHeaders = array();
-        foreach ($headers as $headerName => $headerValue) {
+        foreach ($associativeHeaders as $headerName => $headerValue) {
             $rawHeaders[] = $headerName . ': ' . $headerValue;
         }
 
         return $rawHeaders;
+    }
+
+    /**
+     * @param  array $complexAssociativeHeaders
+     * @return array
+     */
+    public static function convertComplexAssociativeToFlatAssociative(array $complexAssociativeHeaders)
+    {
+        $associativeHeaders = array();
+        foreach ($complexAssociativeHeaders as $headerName => $headerValues) {
+            $associativeHeaders[$headerName] = implode(', ', $headerValues);
+        }
+
+        return $associativeHeaders;
     }
 }
