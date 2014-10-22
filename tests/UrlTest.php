@@ -28,6 +28,26 @@ class UrlTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected['url'], (string) $url);
     }
 
+    public function testInvalidUrl()
+    {
+        $this->setExpectedException(
+            '\InvalidArgumentException',
+            'The url "test://" is invalid.'
+        );
+
+        new Url('test://');
+    }
+
+    public function testUrlWithNoHost()
+    {
+        $this->setExpectedException(
+            '\InvalidArgumentException',
+            'Url has to contain a host!'
+        );
+
+        new Url('test');
+    }
+
     /**
      * @return array
      */
@@ -67,7 +87,7 @@ class UrlTest extends \PHPUnit_Framework_TestCase
                 ),
             ),
             array(
-                'http://hostname',
+                'https://hostname',
                 array(
                     'scheme' => 'http',
                     'user' => null,
@@ -77,9 +97,9 @@ class UrlTest extends \PHPUnit_Framework_TestCase
                     'path' => '/',
                     'query' => null,
                     'fragment' => null,
-                    'host' => 'http://hostname:80',
+                    'host' => 'https://hostname:80',
                     'resource' => '/',
-                    'url' => 'http://hostname:80/'
+                    'url' => 'https://hostname:80/'
                 ),
             ),
         );

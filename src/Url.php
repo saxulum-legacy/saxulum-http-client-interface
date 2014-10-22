@@ -55,7 +55,7 @@ class Url
      */
     public function __construct($url)
     {
-        $urlParts = parse_url($url);
+        $urlParts = @parse_url($url);
 
         if (false === $urlParts) {
             throw new \InvalidArgumentException(sprintf('The url "%s" is invalid.', $url));
@@ -71,7 +71,7 @@ class Url
     {
         $this->setUrlPart($urlParts, 'scheme', Url::SCHEME_HTTP);
         $this->setUrlPart($urlParts, 'host', function () {
-            throw new \Exception('Url has to contain a host!');
+            throw new \InvalidArgumentException('Url has to contain a host!');
         }, 'hostName');
         $this->setUrlPart($urlParts, 'port', function (array $urlParts) {
             if (isset($urlParts['scheme']) && Url::SCHEME_HTTPS === $urlParts['scheme']) {
