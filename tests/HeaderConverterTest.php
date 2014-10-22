@@ -64,6 +64,7 @@ class HeaderConverterTest extends \PHPUnit_Framework_TestCase
                     'Cookie: PHPSESSID=sessionid',
                     'Connection: keep-alive',
                     'Cache-Control: max-age=0',
+                    'Accept'
                 ),
                 array(
                     'Host' => 'www.dominik-zogg.ch',
@@ -90,7 +91,8 @@ class HeaderConverterTest extends \PHPUnit_Framework_TestCase
                     'Pragma: no-cache',
                     'Server: lighttpd',
                     'Transfer-Encoding: chunked',
-                    'Vary: User-Agent'
+                    'Vary: User-Agent',
+                    'Vary'
                 ),
                 array(
                     'Cache-Control' => 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0',
