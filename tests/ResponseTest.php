@@ -27,6 +27,9 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         foreach ($expected['headers'] as $headerName => $headerValue) {
             $this->assertEquals($headerValue, $response->getHeader($headerName));
         }
+
+        $this->assertFalse($response->hasHeader('Test'));
+        $this->assertEquals(null, $response->getHeader('Test', null));
     }
 
     /**

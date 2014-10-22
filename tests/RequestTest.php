@@ -27,6 +27,9 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         foreach ($expected['headers'] as $headerName => $headerValue) {
             $this->assertEquals($headerValue, $request->getHeader($headerName));
         }
+
+        $this->assertFalse($request->hasHeader('Test'));
+        $this->assertEquals(null, $request->getHeader('Test', null));
     }
 
     /**
