@@ -2,11 +2,7 @@
 
 namespace Saxulum\HttpClient;
 
-interface HttpInterface
-{
-    /**
-     * @param  Request  $request
-     * @return Response
-     */
-    public function request(Request $request);
-}
+/**
+ * @deprecated Use the HttpClientInterface
+ */
+interface HttpInterface extends HttpClientInterface {}

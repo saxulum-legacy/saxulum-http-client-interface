@@ -42,7 +42,7 @@ To implement this interface, you need a existing http client and write an adapte
 
 namespace Saxulum\HttpClient;
 
-interface HttpInterface
+interface HttpClientInterface
 {
     /**
      * @param  Request  $request
