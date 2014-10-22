@@ -89,17 +89,17 @@ class UrlTest extends \PHPUnit_Framework_TestCase
             array(
                 'https://hostname',
                 array(
-                    'scheme' => 'http',
+                    'scheme' => 'https',
                     'user' => null,
                     'password' => null,
                     'hostName' => 'hostname',
-                    'port' => 80,
+                    'port' => 443,
                     'path' => '/',
                     'query' => null,
                     'fragment' => null,
-                    'host' => 'https://hostname:80',
+                    'host' => 'https://hostname:443',
                     'resource' => '/',
-                    'url' => 'https://hostname:80/'
+                    'url' => 'https://hostname:443/'
                 ),
             ),
         );
