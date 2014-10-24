@@ -62,7 +62,7 @@ Add the following to your adapter composer.json
 }
 ```
 
-Existing implementations:
+## Implementations
 
  * [saxulum-http-client-adapter-buzz][2] a [kriswallsmith/buzz][3] adapter
  * [saxulum-http-client-adapter-joomla][4] a [joomla/http][5] adapter
