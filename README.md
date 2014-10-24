@@ -65,13 +65,16 @@ Add the following to your adapter composer.json
 Existing implementations:
 
  * [saxulum-http-client-adapter-buzz][2] a [kriswallsmith/buzz][3] adapter
- * [saxulum-http-client-adapter-guzzle][4] a [guzzle/guzzle][5] adapter
- * [saxulum-http-client-adapter-zend][6] a [zendframework/zend-http][7] adapter
+ * [saxulum-http-client-adapter-joomla][4] a [joomla/http][5] adapter
+ * [saxulum-http-client-adapter-guzzle][6] a [guzzle/guzzle][7] adapter
+ * [saxulum-http-client-adapter-zend][8] a [zendframework/zend-http][9] adapter
 
 [1]: https://packagist.org/packages/saxulum/saxulum-http-client-interface
 [2]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-buzz
 [3]: https://packagist.org/packages/kriswallsmith/buzz
-[4]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-guzzle
-[5]: https://packagist.org/packages/guzzle/guzzle
-[6]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-zend
-[7]: https://packagist.org/packages/zendframework/zend-http
+[4]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-joomla
+[5]: https://packagist.org/packages/joomla/http
+[6]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-guzzle
+[7]: https://packagist.org/packages/guzzle/guzzle
+[8]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-zend
+[9]: https://packagist.org/packages/zendframework/zend-http
