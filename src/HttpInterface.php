@@ -5,4 +5,7 @@ namespace Saxulum\HttpClient;
 /**
  * @deprecated Use the HttpClientInterface
  */
-interface HttpInterface extends HttpClientInterface {}
+class_alias(
+    'Saxulum\HttpClient\HttpClientInterface',
+    'Saxulum\HttpClient\HttpInterface'
+);
