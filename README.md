@@ -67,7 +67,8 @@ Add the following to your adapter composer.json
  * [saxulum-http-client-adapter-buzz][2] a [kriswallsmith/buzz][3] adapter
  * [saxulum-http-client-adapter-joomla][4] a [joomla/http][5] adapter
  * [saxulum-http-client-adapter-guzzle][6] a [guzzle/guzzle][7] adapter
- * [saxulum-http-client-adapter-zend][8] a [zendframework/zend-http][9] adapter
+ * [saxulum-http-client-adapter-vinelab][8] a [vinelab/http][9] adapter
+ * [saxulum-http-client-adapter-zend][10] a [zendframework/zend-http][11] adapter
 
 [1]: https://packagist.org/packages/saxulum/saxulum-http-client-interface
 [2]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-buzz
@@ -76,5 +77,7 @@ Add the following to your adapter composer.json
 [5]: https://packagist.org/packages/joomla/http
 [6]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-guzzle
 [7]: https://packagist.org/packages/guzzle/guzzle
-[8]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-zend
-[9]: https://packagist.org/packages/zendframework/zend-http
+[8]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-vinelab
+[9]: https://packagist.org/packages/vinelab/http
+[10]: https://packagist.org/packages/saxulum/saxulum-http-client-adapter-zend
+[11]: https://packagist.org/packages/zendframework/zend-http
