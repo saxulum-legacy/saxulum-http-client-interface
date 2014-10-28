@@ -1,7 +1,5 @@
 <?php
 
-namespace Saxulum\HttpClient;
-
 /**
  * @deprecated Use the HttpClientInterface
  */
