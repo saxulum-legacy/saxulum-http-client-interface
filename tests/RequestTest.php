@@ -23,6 +23,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected['url'], (string) $request->getUrl());
         $this->assertEquals($expected['headers'], $request->getHeaders());
         $this->assertEquals($expected['content'], $request->getContent());
+        $this->assertEquals($expected['plain'], (string) $request);
 
         foreach ($expected['headers'] as $headerName => $headerValue) {
             $this->assertEquals($headerValue, $request->getHeader($headerName));
@@ -56,8 +57,11 @@ class RequestTest extends \PHPUnit_Framework_TestCase
                         'Connection' => 'close',
                         'Accept' => 'application/xhtml+xml',
                     ),
-                    'content' => null
+                    'content' => null,
+                    'plain' => "GET / HTTP/1.1\r\nHost: http://www.wikipedia.org:80\r\nConnection: close\r\nAccept: application/xhtml+xml\r\n\r\n"
                 ),
+            ),
+            array(
                 array(
                     '1.0',
                     Request::METHOD_POST,
@@ -74,7 +78,8 @@ class RequestTest extends \PHPUnit_Framework_TestCase
                     'headers' => array(
                         'Connection' => 'close'
                     ),
-                    'content' => 'key=value'
+                    'content' => 'key=value',
+                    'plain' => "POST / HTTP/1.0\r\nHost: http://www.wikipedia.org:80\r\nConnection: close\r\n\r\nkey=value\r\n\r\n"
                 ),
             ),
         );

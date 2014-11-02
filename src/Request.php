@@ -37,7 +37,7 @@ class Request extends AbstractMessage
         $content = null
     ) {
         $this->protocolVersion = $protocolVersion;
-        $this->method = $method;
+        $this->method = strtoupper($method);
         $this->url = new Url($url);
         $this->headers = $headers;
         $this->content = $content;
@@ -57,5 +57,25 @@ class Request extends AbstractMessage
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        $request = "{$this->getMethod()} {$this->getUrl()->getResource()} HTTP/{$this->getProtocolVersion()}\r\n";
+        $request .= "Host: {$this->getUrl()->getHost()}\r\n";
+        foreach ($this->getHeaders() as $headerName => $headerValue) {
+            $request .= "{$headerName}: {$headerValue}\r\n";
+        }
+
+        if (null !== $this->getContent()) {
+            $request .= "\r\n{$this->getContent()}\r\n";
+        }
+
+        $request .= "\r\n";
+
+        return $request;
     }
 }

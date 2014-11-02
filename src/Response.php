@@ -50,4 +50,23 @@ class Response extends AbstractMessage
     {
         return $this->statusMessage;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        $response = "HTTP/{$this->getProtocolVersion()} {$this->getStatusCode()} {$this->getStatusMessage()}\r\n";
+        foreach ($this->getHeaders() as $headerName => $headerValue) {
+            $response .= "{$headerName}: {$headerValue}\r\n";
+        }
+
+        if (null !== $this->getContent()) {
+            $response .= "\r\n{$this->getContent()}\r\n";
+        }
+
+        $response .= "\r\n";
+
+        return $response;
+    }
 }

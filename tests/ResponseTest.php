@@ -23,6 +23,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected['statusMessage'], $response->getStatusMessage());
         $this->assertEquals($expected['headers'], $response->getHeaders());
         $this->assertEquals($expected['content'], $response->getContent());
+        $this->assertEquals($expected['plain'], (string) $response);
 
         foreach ($expected['headers'] as $headerName => $headerValue) {
             $this->assertEquals($headerValue, $response->getHeader($headerName));
@@ -55,19 +56,25 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
                     'headers' => array(
                         'Content-Type' => 'application/xhtml+xml',
                     ),
-                    'content' => '<html><head><title>test</title></head><body><p>test</p></body></html>'
+                    'content' => '<html><head><title>test</title></head><body><p>test</p></body></html>',
+                    'plain' => "HTTP/1.1 200 OK\r\nContent-Type: application/xhtml+xml\r\n\r\n<html><head><title>test</title></head><body><p>test</p></body></html>\r\n\r\n"
                 ),
+            ),
+            array(
                 array(
                     '1.1',
-                    200,
-                    'OK'
+                    404,
+                    'NOT FOUND',
+                    array(),
+                    null
                 ),
                 array(
                     'protocolVersion' => '1.1',
-                    'statusCode' => 200,
-                    'statusMessage' => 'OK',
+                    'statusCode' => 404,
+                    'statusMessage' => 'NOT FOUND',
                     'headers' => array(),
-                    'content' => null
+                    'content' => null,
+                    'plain' => "HTTP/1.1 404 NOT FOUND\r\n\r\n"
                 ),
             ),
         );
