@@ -34,12 +34,11 @@ class History
     public function __toString()
     {
         $string = '';
-        $seperator = "\n-----\n";
         foreach ($this->historyEntries as $historyEntry) {
-            $string .= (string) $historyEntry . $seperator;
+            $string .= (string) $historyEntry . HistoryEntry::SEPERATOR;
         }
 
-        $string = substr($string, 0, strlen($seperator) * -1);
+        $string = substr($string, 0, strlen(HistoryEntry::SEPERATOR) * -1);
 
         return $string;
     }

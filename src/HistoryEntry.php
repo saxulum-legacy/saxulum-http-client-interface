@@ -14,6 +14,8 @@ class HistoryEntry
      */
     protected $response;
 
+    const SEPERATOR = "\n-----\n";
+
     /**
      * @param Request  $request
      * @param Response $response
@@ -47,7 +49,7 @@ class HistoryEntry
     {
         $string = '';
         $string .= trim((string) $this->request);
-        $string .= "\n-----\n";
+        $string .= self::SEPERATOR;
         $string .= trim((string) $this->response);
 
         return $string;
