@@ -19,6 +19,30 @@
 
 Through [Composer](http://getcomposer.org) as [saxulum/saxulum-http-client-interface][1].
 
+#### Within a library/bundle
+
+``` {.json}
+{
+    "require": {
+        "saxulum/saxulum-http-client-interface": "~1.0",
+        "saxulum/saxulum-http-client-adapter": "~1.0"
+    }
+}
+```
+
+#### Within a project
+
+Replace `saxulum/saxulum-http-client-adapter-buzz` with the adapter you like to use.
+
+``` {.json}
+{
+    "require": {
+        "saxulum/saxulum-http-client-interface": "~1.0",
+        "saxulum/saxulum-http-client-adapter-buzz": "~1.0"
+    }
+}
+```
+
 ## Usage
 
 ``` {.php}
