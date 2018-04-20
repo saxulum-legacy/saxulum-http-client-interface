@@ -18,5 +18,6 @@
   "autoload": {
     "psr-4": { "Saxulum\\HttpClient\\": "src/" },
     "files": [ "src/HttpInterface.php" ]
-  }
+  },
+  "abandoned": true
 }
